@@ -39,12 +39,19 @@ int nodeCount(Node* root) {
 
     return nodeCount(root->left)+nodeCount(root->right)+1;
 }
+
+int sumOfNode(Node* root) {
+    if(root == nullptr) return 0;
+
+    return sumOfNode(root->left)+sumOfNode(root->right)+root->data;
+}
 int main() {
     vector<int> preOrder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
 
     Node* root = buildTree(preOrder);
-    cout<<heightOfTree(root)<<endl;
-    cout<<nodeCount(root)<<endl;
-    cout<<endl;
+    cout<<"Height : "<<heightOfTree(root)<<endl;
+    cout<<"No. of Node : "<<nodeCount(root)<<endl;
+    cout<<"Sum of Node : "<<sumOfNode(root)<<endl;
+    
     return 0;
 }
