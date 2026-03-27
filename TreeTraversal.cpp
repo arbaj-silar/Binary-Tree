@@ -46,10 +46,19 @@ void inOrder(Node* root) {
 
     inOrder(root->right);
 }
+
+void postOrder(Node* root) {
+    if(root == nullptr) return;
+
+    postOrder(root->left);
+    postOrder(root->right);
+
+    cout<<root->data<<" ";
+}
 int main() {
     vector<int> preOrder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
 
     Node* root = buildTree(preOrder);
-    preOrderTraversal(root);
+    postOrder(root);
     return 0;
 }
