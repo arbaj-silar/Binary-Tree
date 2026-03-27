@@ -33,11 +33,18 @@ int heightOfTree(Node* root) {
 
     return max(heightOfTree(root->left), heightOfTree(root->right)) + 1;
 }
+
+int nodeCount(Node* root) {
+    if(root == nullptr) return 0;
+
+    return nodeCount(root->left)+nodeCount(root->right)+1;
+}
 int main() {
-    vector<int> preOrder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, 6, -1, -1};
+    vector<int> preOrder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
 
     Node* root = buildTree(preOrder);
     cout<<heightOfTree(root)<<endl;
+    cout<<nodeCount(root)<<endl;
     cout<<endl;
     return 0;
 }
